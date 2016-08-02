@@ -48,7 +48,7 @@ If all incoming edges are locked, the node wake up and do associated job.
 
 Now a worker finished a job associated to node `a`, and the node is dequeued.
 When node is dequeued, all nodes connected with outgoing edge from the node are enqueued.
-In this case, node `b` and `e` are enqueued, and edge `a -> e` and `e -> b` are locked.
+In this case, node `b` and `e` are enqueued, and edge `a -> e` and `a -> b` are locked.
 
 ![3.png](img/3.png)
 
