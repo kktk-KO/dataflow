@@ -1,7 +1,7 @@
 dataflow
 =======
 
-C++ DSL for easy async programming.
+C++ DSL for easy graphical async programming.
 
 concept
 ------
@@ -36,7 +36,7 @@ Each node has directed edges which represent dependency flow.
 Graph object manages nodes and connections.
 Graphical representation of this network is fowllowing
 
-![1.png]("https://raw.githubusercontent.com/kktk-KO/trwlang/master/img/1.png")
+![1.png](img/1.png)
 
 At this time point, node a is in job queue.
 When node is enqueued, the node sleeps until all incoming edges are locked.
@@ -44,13 +44,13 @@ If all incoming edges are locked, the node wake up and do associated job.
 `graph::fire(node const & n)` enqueues `n` and lock it's all incomming edges.
 `graph::run()` make workers wake up.
 
-![2.png]("https://raw.githubusercontent.com/kktk-KO/trwlang/master/img/2.png")
+![2.png](img/2.png)
 
 Now a worker finished a job associated to node `a`, and the node is dequeued.
 When node is dequeued, all nodes connected with outgoing edge from the node are enqueued.
 In this case, node `b` and `e` are enqueued, and edge `a -> e` and `e -> b` are locked.
 
-![3.png]("https://raw.githubusercontent.com/kktk-KO/trwlang/master/img/3.png")
+![3.png](img/3.png)
 
 Now node `b` and `e` are in queue.
 If there are many workers, these node can be executed simultaneously.
