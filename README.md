@@ -85,7 +85,7 @@ Node can also refer to other node's data.
 
 This is a simple example how to share data.
 
-```c++:
+```c++
   auto & a = g.add_node<int>("a", [] (int & a) {});
   auto & b = g.add_node("b", [] (int & a) {});
   auto & c = g.add_node("c", [] (int & a) {});
@@ -102,7 +102,7 @@ This is a example of data race.
 If there are multi workers, node `a` may be accessed and be written simultaneously.
 Problem here is that there is no dependence between `b` and `c`. 
 
-```c++:
+```c++
   auto & a = g.add_node<int>("a", [] (int & a) {});
   auto & b = g.add_node("b", [] (int & a) {});
   auto & c = g.add_node("c", [] (int & a) {});
@@ -115,7 +115,8 @@ Problem here is that there is no dependence between `b` and `c`.
 ```
 
 The other solution is to use atomic variable.
-```c++:
+
+```c++
   auto & a = g.add_node<std::atomic_int>("a", [] (std::atomic_int & a) {});
   auto & b = g.add_node("b", [] (std::atomic_int & a) {});
   auto & c = g.add_node("c", [] (std::atomic_int & a) {});
