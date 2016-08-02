@@ -1,0 +1,52 @@
+digraph { 
+  node [
+    shape = box
+  ];
+  "f" [
+  label = "f"
+  
+   ];
+  "e" [
+  label = "e"
+  
+   ];
+  "d" [
+  label = "d"
+  
+   ];
+  "c" [
+  label = "c"
+  
+   ];
+  "b" [
+  label = "b"
+  
+   ];
+  "a" [
+  label = "a"
+  
+   ];
+  "f" -> "a" [
+    color = red
+   ];
+  "e" -> "f" [
+    color = green
+   ];
+  "d" -> "a" [
+    color = red
+   ];
+  "c" -> "d" [
+    color = green
+   ];
+  "b" -> "c" [
+    color = green
+   ];
+  "a" -> "b" [
+    color = green
+   ];
+  "a" -> "e" [
+    color = green
+   ];
+  {rank = same; b; c; d;}
+  {rank = same; e; f;}
+}
